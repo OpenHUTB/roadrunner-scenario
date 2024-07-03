@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>开始使用 RoadRunner 场景</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S3 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S4 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>开始使用 RoadRunner 场景</span></h1><div  class = 'S1'><span>创建并回放自动驾驶模拟场景</span></div><div  class = 'S1'><span>RoadRunner Scenario 是一个交互式编辑器，可让设计用于仿真和测试自动驾驶系统的场景。</span><span>放置车辆和路径、定义逻辑并对场景进行参数化。</span><span>然后可以在编辑器中仿真该场景。</span><span>从内置车辆参与者中进行选择，或使用 MATLAB</span><span> </span><span>®</span><span>和 Simulink</span><span> </span><span>®</span><span>或</span><span>CARLA</span><span>设计自己的车辆参与者。</span></div><div  class = 'S1'><span>RoadRunner Scenario 支持编辑器内回放以可视化场景并连接到其他模拟器进行协同仿真。</span><span>场景可以导出到 ASAM</span><span> </span><span>OpenSCENARIO®</span><span>。</span><span>这些导出的场景可以在任何符合 OpenSCENARIO 的模拟器和播放器中使用，包括 </span><a href = "https://github.com/esmini/esmini"><span>esmini</span></a><span>。</span></div><div  class = 'S1'><span>RoadRunner</span><span> </span><span>API 允许更改场景的参数，以创建许多用于自动化测试的变体</span><span>。</span><span>可以使用 API 来自动化工作流程，例如将场景放置在不同场景中、模拟场景和导出。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>安装与配置</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/install-and-activate-roadrunner.html"><span>安装并激活 RoadRunner</span></a></li><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/get-roadrunner-updates-and-upgrades.html"><span>获取 RoadRunner 更新和升级</span></a></li><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/roadrunner-project-and-scene-system.html"><span>RoadRunner 项目和场景系统</span></a></li><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/keyboard-shortcuts-and-mouse-actions-for-roadrunner.html"><span>RoadRunner 的键盘快捷键和鼠标操作</span></a></li></ul><h2  class = 'S4'><span>教程</span></h2><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/explore-simulate-simple-scenario.html"><span style=' font-weight: bold;'>探索并模拟简单场景</span></a><span></span></li></ul><div  class = 'S1'><span>            在 RoadRunner Scenario 中探索和仿真简单的预构建场景</span><span>，以了解场景设计的基础知识。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-lane-following-scenario.html"><span style=' font-weight: bold;'>设计车道跟随场景</span></a></li></ul><div  class = 'S1'><span>            设计一个场景，其中车辆沿着车道行驶并改变速度。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-lane-change-scenario.html"><span style=' font-weight: bold;'>设计变道场景</span></a></li></ul><div  class = 'S1'><span>            设计一个车辆在不使用预定义路径的情况下改变车道的场景。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-lane-swerve-scenario.html"><span style=' font-weight: bold;'>设计车道转弯场景</span></a></li></ul><div  class = 'S1'><span>            设计一个场景，其中车辆在车道内从一侧转向另一侧。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-path-following-scenario.html"><span style=' font-weight: bold;'>设计路径跟随场景</span></a></li></ul><div  class = 'S1'><span>            设计一个场景，其中车辆遵循预定义的路径。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/open-and-explore-sample-scenarios.html"><span style=' font-weight: bold;'>打开并探索示例场景</span></a></li></ul><div  class = 'S1'><span>            探索并仿真 RoadRunner Scenarios 中的预构建场景。</span></div><h2  class = 'S4'><span>关于场景</span></h2><ul  class = 'S2'><li  class = 'S3'><a href = "./ug\roadrunner_scenario_fundamentals.html"><span style=' font-weight: bold;'>RoadRunner 场景基础知识</span></a></li></ul><div  class = 'S1'><span>            设计场景、导入和导出 ASAM OpenSCENARIO 文件、以编程方式生成场景变体、与 </span><span>CARLA 和 MATLAB 以及 Simulink 进行协同仿真。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/actors-in-roadrunner-scenario.html"><span style=' font-weight: bold;'>RoadRunner 场景中的参与者</span></a><span></span></li></ul><div  class = 'S1'><span>            了解 RoadRunner Scenario 中的参与者。</span></div><ul  class = 'S2'><li  class = 'S3'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/specify-and-assign-actor-behaviors.html"><span style=' font-weight: bold;'>指定和分配参与者行为</span></a><span></span></li></ul><div  class = 'S1'><span>            将行为分配给 RoadRunner</span><span>、MATLAB 和 Simulink 或外部模拟器（例如 CARLA ）</span><span>中的参与者。</span></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 开始使用 RoadRunner 场景
+% 创建并回放自动驾驶模拟场景
+% 
+% RoadRunner Scenario 是一个交互式编辑器，可让设计用于仿真和测试自动驾驶系统的场景。放置车辆和路径、定义逻辑并对场景进行参数化。然后可以在编辑器中仿真该场景。从内置车辆参与者中进行选择，或使用 
+% MATLAB ®和 Simulink ®或CARLA设计自己的车辆参与者。
+% 
+% RoadRunner Scenario 支持编辑器内回放以可视化场景并连接到其他模拟器进行协同仿真。场景可以导出到 ASAM OpenSCENARIO®。这些导出的场景可以在任何符合 
+% OpenSCENARIO 的模拟器和播放器中使用，包括 <https://github.com/esmini/esmini esmini>。
+% 
+% RoadRunner API 允许更改场景的参数，以创建许多用于自动化测试的变体。可以使用 API 来自动化工作流程，例如将场景放置在不同场景中、模拟场景和导出。
+% 
+% *安装与配置*
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/install-and-activate-roadrunner.html 
+% 安装并激活 RoadRunner>
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/get-roadrunner-updates-and-upgrades.html 
+% 获取 RoadRunner 更新和升级>
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/roadrunner-project-and-scene-system.html 
+% RoadRunner 项目和场景系统>
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ug/keyboard-shortcuts-and-mouse-actions-for-roadrunner.html 
+% RoadRunner 的键盘快捷键和鼠标操作>
+%% 教程
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/explore-simulate-simple-scenario.html 
+% *探索并模拟简单场景*>
+%% 
+% 在 RoadRunner Scenario 中探索和仿真简单的预构建场景，以了解场景设计的基础知识。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-lane-following-scenario.html 
+% *设计车道跟随场景*>
+%% 
+% 设计一个场景，其中车辆沿着车道行驶并改变速度。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-lane-change-scenario.html 
+% *设计变道场景*>
+%% 
+% 设计一个车辆在不使用预定义路径的情况下改变车道的场景。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-lane-swerve-scenario.html 
+% *设计车道转弯场景*>
+%% 
+% 设计一个场景，其中车辆在车道内从一侧转向另一侧。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/design-path-following-scenario.html 
+% *设计路径跟随场景*>
+%% 
+% 设计一个场景，其中车辆遵循预定义的路径。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/open-and-explore-sample-scenarios.html 
+% *打开并探索示例场景*>
+%% 
+% 探索并仿真 RoadRunner Scenarios 中的预构建场景。
+%% 关于场景
+%% 
+% * <./ug\roadrunner_scenario_fundamentals.html *RoadRunner 场景基础知识*>
+%% 
+% 设计场景、导入和导出 ASAM OpenSCENARIO 文件、以编程方式生成场景变体、与 CARLA 和 MATLAB 以及 Simulink 进行协同仿真。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/actors-in-roadrunner-scenario.html 
+% *RoadRunner 场景中的参与者*>
+%% 
+% 了解 RoadRunner Scenario 中的参与者。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/specify-and-assign-actor-behaviors.html 
+% *指定和分配参与者行为*>
+%% 
+% 将行为分配给 RoadRunner、MATLAB 和 Simulink 或外部模拟器（例如 CARLA ）中的参与者。
+##### SOURCE END #####
+-->
+</div></body></html>

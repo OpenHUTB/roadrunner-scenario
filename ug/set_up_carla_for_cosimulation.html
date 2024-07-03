@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>设置 Carla 进行协同仿真</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S3 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S4 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S5 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/set-up-carla-for-cosimulation.html"><span>设置 Carla 进行协同仿真</span></a></h1><h2  class = 'S1'><span>安装 Carla</span></h2><div  class = 'S2'><span>从 GitHub® </span><a href = "https://github.com/carla-simulator/carla/releases"><span>发布网站</span></a><span>下载 Carla。</span><span>将发布版本解压到一个文件夹中，该文件夹成为 CARLA 安装目录 </span><span style=' font-style: italic; font-family: monospace;'>CARLAInstall</span><span>。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>笔记</span></div><ul  class = 'S3'><li  class = 'S4'><span>RoadRunner 场景仅使用 CARLA </span><span style=' font-family: monospace;'>0.9.12 </span><span>版本</span><span>进行了测试。</span></li><li  class = 'S4'><span>CARLA</span><span>版本 </span><span style=' font-family: monospace;'>0.9.12 </span><span>需要 Python®</span><span> </span><span style=' font-family: monospace;'>3.7</span><span>。</span></li></ul><div  class = 'S2'><span style=' font-weight: bold;'>生成 Carla 协同仿真桥</span></div><div  class = 'S2'><span>RoadRunner 场景</span><span>和 Carla 协同仿真使用 Carla 协同仿真桥进行同步和通信。</span><span>有关协同仿真桥的信息，请参阅</span><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/overview-of-roadrunner-scenario-and-carla-cosimulation.html"><span>RoadRunner 场景和 Carla 协同仿真概述</span></a><span>。</span></div><div  class = 'S2'><span>请按照以下步骤生成协同仿真桥：</span></div><div  class = 'S2'><span>        1. 安装 </span><a href = "https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe"><span>Python 3.7</span></a><span>。</span></div><div  class = 'S2'><span>        2. 将 Python 添加到您的路径中。有关如何在 Microsoft</span><span> </span><span>®</span><span> </span><span>Windows</span><span> </span><span>®</span><span>中执行此操作的信息，请参阅</span><span>Python 文档中的</span><span> </span><a href = "https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables"><span>https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables 。</span></a></div><div  class = 'S2'><span>        3. 使用这些命令更新</span><span style=' font-family: monospace;'>pip</span><span>并安装</span><span style=' font-family: monospace;'>psutil</span><span> </span><span>软件包。</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        python -m pip install --install pip</span></div><div  class = 'S2'><span style=' font-family: monospace;'>        python -m pip install psutil</span></div><div  class = 'S2'><span>        4. 运行 </span><span style=' font-style: italic; font-family: monospace;'>RoadRunnerInstall</span><span style=' font-family: monospace;'>\bin\win64\Tools\CARLA\examples\setup.bat</span><span>，其中 </span><span style=' font-style: italic; font-family: monospace;'>RoadRunnerInstall </span><span>是</span><span>安装 RoadRunner Scenario 的文件夹。</span></div><h3  class = 'S5'><span style=' font-weight: bold;'>        笔记</span></h3><div  class = 'S2'><span>        如果在 </span><span style=' font-family: monospace;'>Program Files </span><span>目录中</span><span>安装 RoadRunner Scenario，则必须以管理员身份编辑 BAT 文件。</span></div><div  class = 'S2'><span style=' font-weight: bold;'>配置协同仿真属性</span></div><div  class = 'S2'><span>可以选择修改 RoadRunner Scenario 和 CARLA 之间的协同仿真属性</span><span>。</span><span>协同仿真属性包括场景仿真引擎 (SSE) 的时序步长分辨率和网络位置。</span><span>有关如何配置协同仿真属性的信息，请参阅</span><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/simulationconfiguration.html"><span>仿真配置</span></a><span>。</span></div><h2  class = 'S1'><span>也可以看看</span></h2><div  class = 'S2'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/carla-cosimulation-workflow.html"><span>CARLA 协同仿真工作流程</span></a><span>|</span><span> </span><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/overview-of-roadrunner-scenario-and-carla-cosimulation.html"><span>RoadRunner 场景和 CARLA 协同仿真概述</span></a><span>|</span><span> </span><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/simulationconfiguration.html"><span>模拟配置</span></a></div><h2  class = 'S1'><span>外部网站</span></h2><ul  class = 'S3'><li  class = 'S4'><a href = "https://github.com/carla-simulator/carla/releases"><span>https://github.com/carla-simulator/carla/releases</span></a></li><li  class = 'S4'><a href = "https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe"><span>Python 3.7</span></a></li><li  class = 'S4'><a href = "https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables"><span>https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables</span></a></li></ul>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/set-up-carla-for-cosimulation.html 设置 Carla 进行协同仿真>
+%% 安装 Carla
+% 从 GitHub® <https://github.com/carla-simulator/carla/releases 发布网站>下载 Carla。将发布版本解压到一个文件夹中，该文件夹成为 
+% CARLA 安装目录 |_CARLAInstall_|。
+% 
+% *笔记*
+%% 
+% * RoadRunner 场景仅使用 CARLA |0.9.12| 版本进行了测试。
+% * CARLA版本 |0.9.12| 需要 Python® |3.7|。
+%% 
+% *生成 Carla 协同仿真桥*
+% 
+% RoadRunner 场景和 Carla 协同仿真使用 Carla 协同仿真桥进行同步和通信。有关协同仿真桥的信息，请参阅<https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/overview-of-roadrunner-scenario-and-carla-cosimulation.html 
+% RoadRunner 场景和 Carla 协同仿真概述>。
+% 
+% 请按照以下步骤生成协同仿真桥：
+% 
+% 1. 安装 <https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe Python 
+% 3.7>。
+% 
+% 2. 将 Python 添加到您的路径中。有关如何在 Microsoft ® Windows ®中执行此操作的信息，请参阅Python 文档中的 <https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables 
+% https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables 
+% 。>
+% 
+% 3. 使用这些命令更新|pip|并安装|psutil| 软件包。
+% 
+% |python -m pip install REPLACE_WITH_DASH_DASHinstall pip|
+% 
+% |python -m pip install psutil|
+% 
+% 4. 运行 |_RoadRunnerInstall_\bin\win64\Tools\CARLA\examples\setup.bat|，其中 |_RoadRunnerInstall_| 
+% 是安装 RoadRunner Scenario 的文件夹。
+%         *笔记*
+% 如果在 |Program Files| 目录中安装 RoadRunner Scenario，则必须以管理员身份编辑 BAT 文件。
+% 
+% *配置协同仿真属性*
+% 
+% 可以选择修改 RoadRunner Scenario 和 CARLA 之间的协同仿真属性。协同仿真属性包括场景仿真引擎 (SSE) 的时序步长分辨率和网络位置。有关如何配置协同仿真属性的信息，请参阅<https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/simulationconfiguration.html 
+% 仿真配置>。
+%% 也可以看看
+% <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/carla-cosimulation-workflow.html 
+% CARLA 协同仿真工作流程>| <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/overview-of-roadrunner-scenario-and-carla-cosimulation.html 
+% RoadRunner 场景和 CARLA 协同仿真概述>| <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/simulationconfiguration.html 
+% 模拟配置>
+%% 外部网站
+%% 
+% * <https://github.com/carla-simulator/carla/releases https://github.com/carla-simulator/carla/releases>
+% * <https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe Python 3.7>
+% * <https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables 
+% https://docs.python.org/3/using/windows.html#excursus-setting-environment-variables>
+##### SOURCE END #####
+-->
+</div></body></html>

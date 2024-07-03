@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>导入情景数据</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S3 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S4 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>导入情景数据</span></h1><div  class = 'S1'><span>从 ASAM OpenSCENARIO® 导入情景轨迹</span><span>并</span><span>导入自定义参与者网格</span></div><div  class = 'S1'><span>可以从 ASAM OpenSCENARIO V1.0 导入场景轨迹数据以及自定义参与者网格。</span><span>可以使用导入的场景数据来设计和修改现实情景。</span></div><div  class = 'S1'><span>要导入情景文件，请从</span><span>RoadRunner 场景</span><span>工具栏中选择</span><span style=' font-weight: bold;'>文件</span><span>，然后选择</span><span> </span><span style=' font-weight: bold;'>导入</span><span>。</span><span>或者，您可以使用MATLAB</span><span> </span><span>®</span><span>函数 </span><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/roadrunner.importscenario.html"><span style=' font-family: monospace;'>importScenario</span></a><span style=' font-family: monospace;'> </span><span>或 gRPC</span><span> </span><span>®</span><span> </span><span>API 的 </span><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ref/import.html"><span style=' font-family: monospace;'>Import</span></a><span style=' font-family: monospace;'> </span><span>方法以编程方式导入场景文件</span><span>。</span></div><h2  class = 'S2'><span>主题</span></h2><ul  class = 'S3'><li  class = 'S4'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-trajectories-from-asam-openscenario-files.html"><span style=' font-weight: bold;'>从 ASAM OpenSCENARIO 文件导入轨迹</span></a><span></span></li></ul><div  class = 'S1'><span>            从 ASAM OpenSCENARIO 1.0 文件格式定义的场景导入轨迹。</span></div><ul  class = 'S3'><li  class = 'S4'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-custom-vehicle-meshes.html"><span style=' font-weight: bold;'>导入自定义车辆网格</span></a></li></ul><div  class = 'S1'><span>            定义自定义车辆 FBX®网格</span><span>并将其导入</span><span>RoadRunner Scenario 中。</span></div><ul  class = 'S3'><li  class = 'S4'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-custom-character-meshes.html"><span style=' font-weight: bold;'>导入自定义角色网格</span></a></li></ul><div  class = 'S1'><span>            定义自定义角色 FBX 网格并将其导入RoadRunner Scenario 中。</span></div><ul  class = 'S3'><li  class = 'S4'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-trajectories-from-csv-files.html"><span style=' font-weight: bold;'>从 CSV 文件导入轨迹</span></a><span></span></li></ul><div  class = 'S1'><span>            导入以 CSV 文件格式定义的轨迹数据。</span></div><h2  class = 'S2'><span>相关信息</span></h2><ul  class = 'S3'><li  class = 'S4'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/import-scene-data.html"><span style=' font-weight: bold;'>导入场景数据</span></a></li></ul>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 导入情景数据
+% 从 ASAM OpenSCENARIO® 导入情景轨迹并导入自定义参与者网格
+% 
+% 可以从 ASAM OpenSCENARIO V1.0 导入场景轨迹数据以及自定义参与者网格。可以使用导入的场景数据来设计和修改现实情景。
+% 
+% 要导入情景文件，请从RoadRunner 场景工具栏中选择*文件*，然后选择 *导入*。或者，您可以使用MATLAB ®函数 <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/roadrunner.importscenario.html 
+% |importScenario|> 或 gRPC ® API 的 <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/ref/import.html 
+% |Import|> 方法以编程方式导入场景文件。
+%% 主题
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-trajectories-from-asam-openscenario-files.html 
+% *从 ASAM OpenSCENARIO 文件导入轨迹*>
+%% 
+% 从 ASAM OpenSCENARIO 1.0 文件格式定义的场景导入轨迹。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-custom-vehicle-meshes.html 
+% *导入自定义车辆网格*>
+%% 
+% 定义自定义车辆 FBX®网格并将其导入RoadRunner Scenario 中。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-custom-character-meshes.html 
+% *导入自定义角色网格*>
+%% 
+% 定义自定义角色 FBX 网格并将其导入RoadRunner Scenario 中。
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ug/import-trajectories-from-csv-files.html 
+% *从 CSV 文件导入轨迹*>
+%% 
+% 导入以 CSV 文件格式定义的轨迹数据。
+%% 相关信息
+%% 
+% * <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner/import-scene-data.html 
+% *导入场景数据*>
+##### SOURCE END #####
+-->
+</div></body></html>

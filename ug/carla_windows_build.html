@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>Windows 构建</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin-bottom: 20px; padding-bottom: 4px;  }
+.S3 { margin: 0px; padding: 10px 0px 10px 5px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 700; text-align: start;  }
+.S4 { margin: -1px 0px 0px; padding: 10px 0px 10px 7px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: start;  }
+.S5 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S6 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S7 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S8 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S9 { margin: 10px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 15px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0' id = 'T_DCD6A330' ><span>Windows 构建</span></h1><div  class = 'S1'><span>本指南详细介绍了如何在 Windows 上从源代码构建 CARLA。</span><span>有两个部分。</span><span>第一部分详细介绍系统要求和所需软件的安装，第二部分详细介绍如何实际构建和运行 CARLA。</span></div><div  class = 'S1'><span>构建过程很长（4小时或更长时间）并且涉及多种软件。</span><span>强烈建议在开始之前完整阅读该指南。</span></div><div  class = 'S1'><span>如果遇到错误或困难，请查看</span><a href = "https://carla.readthedocs.io/en/latest/build_faq/"><span style=' font-weight: bold;'>常见问题解答</span></a><span>页面，其中提供了最常见问题的解决方案。</span><span>或者，使用</span><a href = "https://github.com/carla-simulator/carla/discussions"><span>CARLA 论坛</span></a><span>发布您可能有的任何疑问。</span></div><div  class = 'S2'><div  class = 'S3'><span style=' font-weight: bold;'>目录</span></div><div  class = 'S4'><a href = "#H_CDE53E29"><span>第一部分：先决条件
+</span></a><span>    </span><a href = "#H_7AEE5BB6"><span>系统要求
+</span></a><span>    </span><a href = "#H_8BD6895B"><span>软件要求
+</span></a><span>        </span><a href = "#H_50E7DFAF"><span>最小安装
+</span></a><span>        </span><a href = "#H_C233CFAD"><span>Python 依赖项
+</span></a><span>        </span><a href = "#H_4D9FA220"><span>虚幻引擎
+</span></a><span>        </span><a href = "#H_2C62BFBD"><span>笔记
+</span></a><a href = "#H_E50B266D"><span>第二部分：构建 CARLA
+</span></a><span>    </span><a href = "#H_A664A67F"><span>克隆 CARLA 存储库
+</span></a><span>    </span><a href = "#H_065EE9D7"><span>获取资产
+</span></a><span>    </span><a href = "#H_6A991C61"><span>设置虚幻引擎环境变量
+</span></a><span>    </span><a href = "#H_D3F38F72"><span>建造 CARLA
+</span></a><span>        </span><a href = "#H_9FCB07AF"><span>1. 编译Python API客户端：
+</span></a><span>    </span><a href = "#H_C55F3196"><span>2. 编译服务器：
+</span></a><span>    </span><a href = "#H_CA6A114E"><span>3. 开始模拟：
+</span></a><span>    </span><a href = "#H_F30A414C"><span>其他 make 命令
+</span></a><span>        </span><a href = "#H_A89709A4"><span>命令描述</span></a></div></div><h2  class = 'S5' id = 'H_CDE53E29' ><span>第一部分：先决条件</span></h2><div  class = 'S1'><span>在本节中，您将找到开始构建 CARLA 之前所需的系统要求、次要和主要软件安装以及 Python 依赖项的详细信息。</span></div><h3  class = 'S6' id = 'H_7AEE5BB6' ><span style=' font-weight: bold;'>系统要求</span></h3><ul  class = 'S7'><li  class = 'S8'><span style=' font-weight: bold;'>x64 系统。</span><span>模拟器应在任何 64 位 Windows 系统中运行。</span></li><li  class = 'S8'><span style=' font-weight: bold;'>165 GB 磁盘空间。</span><span>CARLA 本身将占用大约 32 GB，相关的主要软件安装（包括虚幻引擎）将占用大约 133 GB。</span></li><li  class = 'S8'><span style=' font-weight: bold;'>足够的 GPU。</span><span>CARLA 旨在实现真实模拟，因此服务器至少需要 6 GB GPU，但建议使用 8 GB。</span><span>强烈建议使用专用 GPU 进行机器学习。</span></li><li  class = 'S8'><span style=' font-weight: bold;'>两个 TCP 端口和良好的互联网连接。</span><span>默认为 2000 年和 2001 年。</span><span>确保这些端口未被防火墙或任何其他应用程序阻止。</span></li></ul><div  class = 'S1'><span style=' font-weight: bold;'>警告</span></div><div  class = 'S1'><span style=' font-weight: bold;'>如果您要从 CARLA 0.9.12 升级到 0.9.13</span><span>：您必须首先将 UE4 引擎的 CARLA 分支升级到最新版本。</span><span>有关升级 UE4 的详细信息，</span><span>请参阅</span><a href = "https://carla.readthedocs.io/en/latest/build_windows/#unreal-engine"><span style=' font-weight: bold;'>虚幻引擎部分</span></a></div><h3  class = 'S6' id = 'H_8BD6895B' ><span style=' font-weight: bold;'>软件要求</span></h3><h4  class = 'S9' id = 'H_50E7DFAF' ><span style=' font-weight: bold;'>最小安装</span></h4><ul  class = 'S7'><li  class = 'S8'><a href = "https://cmake.org/download/"><span style=' font-weight: bold;'>CMake</span></a><span style=' font-weight: bold;'> </span><span>从简单的配置文件生成标准构建文件。</span></li><li  class = 'S8'><a href = "https://git-scm.com/downloads"><span style=' font-weight: bold;'>Git</span></a><span style=' font-weight: bold;'> </span><span>是一个用于管理 CARLA 存储库的版本控制系统。</span></li><li  class = 'S8'><a href = "http://gnuwin32.sourceforge.net/packages/make.htm"><span style=' font-weight: bold;'>Make</span></a><span style=' font-weight: bold;'> </span><span>生成可执行文件。</span><span>必须使用</span><span style=' font-weight: bold;'>Make 3.81 </span><span>版本，否则构建可能会失败。</span><span>如果安装了多个版本的 Make，请检查构建 CARLA 时在 PATH 中使用的版本是否为 3.81。</span><span>您可以通过运行来检查默认的 Make 版本 </span><span style=' font-family: monospace;'>make --version</span><span>。</span></li><li  class = 'S8'><a href = "https://www.7-zip.org/"><span style=' font-weight: bold;'>7Zip</span></a><span style=' font-weight: bold;'> </span><span>是一款文件压缩软件。</span><span>这是自动解压缩资产文件所必需的，并防止在构建期间由于错误或部分提取大文件而出现错误。</span></li><li  class = 'S8'><a href = "https://www.python.org/downloads/"><span style=' font-weight: bold;'>Python3 x64</span></a><span style=' font-weight: bold;'> </span><span>是 CARLA 中的主要脚本语言。</span><span>安装 x32 版本可能会导致冲突，因此强烈建议卸载它。</span></li></ul><div  class = 'S1'><span style=' font-weight: bold;'>重要的</span></div><div  class = 'S1'><span>确保将上述程序添加到</span><a href = "https://www.java.com/en/download/help/path.xml"><span>环境路径</span></a><span>中。</span><span>请记住，添加的路径应与程序的</span><span style=' font-family: monospace;'>bin</span><span>目录相对应。</span></div><h4  class = 'S9' id = 'H_C233CFAD' ><span style=' font-weight: bold;'>Python 依赖项</span></h4><div  class = 'S1'><span>从 CARLA 0.9.12 开始，用户可以选择使用</span><span style=' font-family: monospace;'>pip3</span><span>.</span><span> </span><span>需要 20.3 或更高版本。</span><span>要检查您是否有合适的版本，请运行以下命令：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    pip3 -V</span></div><div  class = 'S1'><span>如果您需要升级：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    pip3 install --upgrade pip</span></div><div  class = 'S1'><span>必须安装以下 Python 依赖项：</span></div><div  class = 'S1'><span>         </span><span style=' font-family: monospace;'>pip3 install --user setuptools</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>    pip3 install --user wheel</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span><span style=' font-weight: bold;'>主要安装</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Visual Studio 2019</span></div><div  class = 'S1'><span>从</span><a href = "https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/"><span>此处</span></a><span>获取 2019 版 Visual Studio</span><span> </span><span>。</span><span>选择</span><span style=' font-weight: bold;'>社区</span><span>作为免费版本。</span><span>使用</span><span style=' font-style: italic;'>Visual Studio 安装程序</span><span>安装三个附加元素：</span></div><ul  class = 'S7'><li  class = 'S8'><span style=' font-weight: bold;'>Windows 8.1 SDK。</span><span>在右侧的</span><span style=' font-style: italic;'>“安装详细信息”</span><span>部分中选择它，或者转到</span><span style=' font-style: italic;'>“单独组件”选项卡并在</span><span style=' font-style: italic;'>“SDK”、“库”和“框架”</span><span>标题下查看</span><span>。</span></li><li  class = 'S8'><span style=' font-weight: bold;'>x64 Visual C++ 工具集。</span><span>在</span><span style=' font-style: italic;'>“工作负载”</span><span>部分中，选择</span><span style=' font-weight: bold;'>“使用 C++ 进行桌面开发”</span><span>。</span><span>这将启用用于构建的 x64 命令提示符。</span><span style=' font-family: monospace;'>Windows</span><span>通过按按钮并搜索 来</span><span>检查它是否已正确安装</span><span style=' font-family: monospace;'>x64</span><span>。</span><span>小心</span><span style=' font-weight: bold;'>不要打开</span><span style=' font-weight: bold; font-family: monospace;'>x86_x64</span><span style=' font-weight: bold;'>提示</span><span>。</span></li><li  class = 'S8'><span style=' font-weight: bold;'>.NET框架4.6.2</span><span>。</span><span>在</span><span style=' font-style: italic;'>工作负载</span><span>部分中，选择</span><span style=' font-weight: bold;'>.NET 桌面开发</span><span>，然后在</span><span>右侧的</span><span style=' font-style: italic;'>安装详细信息</span><span style=' font-family: monospace;'>.NET Framework 4.6.2 development tools</span><span>面板中选择。</span><span>这是构建虚幻引擎所必需的。</span></li></ul><div  class = 'S1'><span style=' font-weight: bold;'>重要的</span></div><div  class = 'S1'><span>其他 Visual Studio 版本可能会导致冲突。</span><span>即使这些已被卸载，某些寄存器也可能仍然存在。</span><span>要从计算机中彻底清除 Visual Studio，请转到</span><span style=' font-family: monospace;'>Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout</span><span>并运行</span><span style=' font-family: monospace;'>.\InstallCleanup.exe -full</span></div><h4  class = 'S9' id = 'H_4D9FA220' ><span style=' font-weight: bold;'>虚幻引擎</span></h4><div  class = 'S1'><span>从版本 0.9.12 开始，CARLA 使用虚幻引擎 4.26 的修改版。</span><span>该分支包含 CARLA 特定的补丁。</span></div><div  class = 'S1'><span>请注意，要下载虚幻引擎的这个分支，</span><span style=' font-weight: bold;'>需要有一个链接到虚幻引擎帐户的 GitHub 帐户</span><span>。</span><span>如果您没有进行此设置，请先按照</span><a href = "https://www.unrealengine.com/en-US/ue4-on-github"><span>本指南</span></a><span>进行操作，然后再继续操作。</span></div><div  class = 'S1'><span>要构建虚幻引擎的修改版本：</span></div><div  class = 'S1'><span style=' font-weight: bold;'>1.</span><span>在终端中，导航到要保存虚幻引擎的位置并克隆</span><span style=' font-style: italic;'>carla</span><span>分支：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    git </span><span style=' font-family: monospace;'>clone</span><span style=' font-family: monospace;'> --depth 1 -b carla https://github.com/CarlaUnreal/UnrealEngine.git .</span></div><h4  class = 'S9' id = 'H_2C62BFBD' ><span style=' font-weight: bold;'>笔记</span></h4><div  class = 'S1'><span>尽可能靠近虚幻引擎文件夹，</span><span style=' font-family: monospace;'>C:\\</span><span>因为如果路径超过一定长度，则会</span><span style=' font-family: monospace;'>Setup.bat</span><span>在步骤 3 中返回错误。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>2.</span><span>运行配置脚本：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    Setup.bat</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>    GenerateProjectFiles.bat</span></div><div  class = 'S1'><span style=' font-weight: bold;'>3.</span><span>编译修改后的引擎：</span></div><ol  class = 'S7'><li  class = 'S8'><span>使用 Visual Studio 2019 打开 </span><span style=' font-family: monospace;'>UE4.sln </span><span>源文件夹内的文件。</span></li><li  class = 'S8'><span>在构建栏中，确保您已选择“Development Editor”、“Win64”和“UnrealBuildTool”选项。</span><span>如果您需要任何帮助，</span><span>请查看</span><a href = "https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/BuildingUnrealEngine/index.html"><span>本指南。</span></a></li><li  class = 'S8'><span>在解决方案资源管理器中，右键单击</span><span style=' font-family: monospace;'>UE4</span><span>并选择</span><span style=' font-family: monospace;'>Build</span><span>。</span></li></ol><div  class = 'S1'><span style=' font-weight: bold;'>4.</span><span>编译解决方案后，您可以打开引擎，通过启动可执行文件 </span><span style=' font-family: monospace;'>Engine\Binaries\Win64\UE4Editor.exe </span><span>来检查所有内容是否已正确安装。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>笔记</span></div><div  class = 'S1'><span>如果安装成功，虚幻引擎的版本选择器应该能够识别。</span><span>可以通过右键单击任何</span><span style=' font-family: monospace;'>.uproject</span><span>文件并选择 来检查这一点</span><span style=' font-family: monospace;'>Switch Unreal Engine version</span><span>。</span><span>您应该会看到一个弹出窗口，显示</span><span style=' font-family: monospace;'>Source Build at PATH</span><span>PATH 是您选择的安装路径。</span><span style=' font-family: monospace;'>Generate Visual Studio project files</span><span>如果您在右键单击文件时</span><span>看不到此选择器</span><span style=' font-family: monospace;'>.uproject</span><span>，则虚幻引擎安装出现问题，您可能需要重新正确安装。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>重要</span></div><div  class = 'S1'><span>到目前为止发生了很多事情。</span><span>强烈建议在继续之前重新启动计算机。</span></div><h2  class = 'S5' id = 'H_E50B266D' ><span>第二部分：构建 CARLA</span></h2><h3  class = 'S6' id = 'H_A664A67F' ><span>克隆 CARLA 存储库</span></h3><div  class = 'S1'><span>上面的按钮将带您进入该项目的官方存储库。</span><span>从那里下载并在本地提取它或使用以下命令克隆它：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    git </span><span style=' font-family: monospace;'>clone</span><span style=' font-family: monospace;'> https://github.com/carla-simulator/carla</span></div><div  class = 'S1'><span style=' font-weight: bold;'>笔记</span></div><div  class = 'S1'><span>该</span><span style=' font-family: monospace;'>master</span><span>分支包含 CARLA 的当前版本以及最新的修复和功能。</span><span>以前的 CARLA 版本标有版本名称。</span><span>永远记住使用命令检查 git 中的当前分支</span><span style=' font-family: monospace;'>git branch</span><span>。</span></div><h3  class = 'S6' id = 'H_065EE9D7' ><span style=' font-weight: bold;'>获取资产</span></h3><div  class = 'S1'><span>通过在 CARLA 根文件夹中运行以下命令，下载</span><span style=' font-weight: bold;'>最新的</span><span>资产以使用当前版本的 CARLA：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    Update.bat</span></div><div  class = 'S1'><span>如果安装了 7zip，资源将被下载并解压到适当的位置。</span><span>如果没有安装此软件，则需要手动将文件内容解压到 </span><span style=' font-family: monospace;'>Unreal\CarlaUE4\Content\Carla</span><span>.</span></div><div  class = 'S1'><span>要下载</span><span style=' font-weight: bold;'>特定版本 </span><span>CARLA  的</span><span>资源：</span></div><ol  class = 'S7'><li  class = 'S8'><span>从 CARLA 根目录，导航到 </span><span style=' font-family: monospace;'>\Util\ContentVersions.txt</span><span>.</span><span> </span><span>本文档包含所有 CARLA 版本的资产链接。</span></li><li  class = 'S8'><span>提取 </span><span style=' font-family: monospace;'>Unreal\CarlaUE4\Content\Carla</span><span> 中的资产。</span><span>如果该路径不存在，请创建它。</span></li><li  class = 'S8'><span>使用类似于以下内容的命令提取文件：</span></li></ol><div  class = 'S1'><span style=' font-family: monospace;'>    tar -xvzf &lt;assets_file_name&gt;.tar.gz.tar -C C:\path\to\carla\Unreal\CarlaUE4\Content\Carla</span></div><h3  class = 'S6' id = 'H_6A991C61' ><span style=' font-family: monospace;'></span><span style=' font-weight: bold;'>设置虚幻引擎环境变量</span></h3><div  class = 'S1'><span>需要设置一个环境变量，以便 CARLA 可以找到虚幻引擎的安装文件夹。</span><span>这允许用户选择要使用哪个特定版本的虚幻引擎。</span><span>如果未指定环境变量，CARLA 将在 Windows 注册表中搜索虚幻引擎并使用在那里找到的第一个版本。</span></div><div  class = 'S1'><span>设置环境变量：</span></div><ol  class = 'S7'><li  class = 'S8'><span>打开 Windows 控制面板，然后转至 </span><span style=' font-family: monospace;'>Advanced System Settings </span><span>或</span><span>在 Windows 搜索栏中</span><span> </span><span style=' font-family: monospace;'>Advanced System Settings </span><span>搜索。</span></li><li  class = 'S8'><span>在 </span><span style=' font-family: monospace;'>Advanced </span><span>面板上打开</span><span style=' font-family: monospace;'>Environment Variables...</span><span>.</span></li><li  class = 'S8'><span>单击 </span><span style=' font-family: monospace;'>New... </span><span>以创建变量。</span></li><li  class = 'S8'><span>为该变量命名 </span><span style=' font-family: monospace;'>UE4_ROOT </span><span>并选择所需虚幻引擎安装的安装文件夹的路径。</span></li></ol><h3  class = 'S6' id = 'H_D3F38F72' ><span style=' font-weight: bold;'>建造 CARLA</span></h3><div  class = 'S1'><span>本节概述了构建 CARLA 的命令。</span></div><ul  class = 'S7'><li  class = 'S8'><span>所有命令都应在根 CARLA 文件夹中运行。</span></li><li  class = 'S8'><span>命令应通过 </span><span style=' font-weight: bold;'>VS 2019 的 x64 Native Tools 命令提示符 </span><span>执行。</span><span>通过单击该 </span><span style=' font-family: monospace;'>Windows </span><span>键并搜索 </span><span style=' font-family: monospace;'>x64</span><span> 来打开它。</span></li></ul><div  class = 'S1'><span>CARLA 的构建过程分为两部分：编译客户端和编译服务器。</span></div><h4  class = 'S9' id = 'H_9FCB07AF' ><span style=' font-weight: bold;'>1.</span><span> </span><span style=' font-weight: bold;'>编译Python API客户端</span><span>：</span></h4><div  class = 'S1'><span>Python API 客户端授予对仿真的控制权。</span><span>第一次构建 CARLA 时需要编译 Python API 客户端，并且在执行任何更新后需要再次编译。</span><span>客户端编译完成后，将能够运行脚本与模拟进行交互。</span></div><div  class = 'S1'><span>以下命令编译 Python API 客户端：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    make PythonAPI</span></div><div  class = 'S1'><span>CARLA 客户端库将以两种截然不同、互斥的形式构建。</span><span>这使用户可以自由选择他们喜欢的形式来运行 CARLA 客户端代码。</span><span>两种形式包括 </span><span style=' font-family: monospace;'>.egg </span><span>文件和 </span><span style=' font-family: monospace;'>.whl </span><span>文件。</span><span>选择</span><span>以下选项之一来使用客户端库</span><span style=' font-weight: bold;'>：</span></div><div  class = 'S1'><span style=' font-weight: bold;'>A、</span><span style=' font-weight: bold; font-family: monospace;'>.egg</span><span style=' font-weight: bold;'>文件</span></div><div  class = 'S1'><span>该 </span><span style=' font-family: monospace;'>.egg </span><span>文件不需要安装。</span><span>导入 CARLA 时，</span><span>CARLA 的所有示例脚本都会自动</span><a href = "https://carla.readthedocs.io/en/latest/build_system/#versions-prior-to-0912"><span>查找此文件。</span></a></div><div  class = 'S1'><span>如果之前安装了 CARLA</span><span style=' font-family: monospace;'>.whl</span><span>，则 它将</span><span style=' font-family: monospace;'>.whl</span><span>优先于</span><span style=' font-family: monospace;'>.egg</span><span>文件。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>B、</span><span style=' font-weight: bold; font-family: monospace;'>.whl</span><span style=' font-weight: bold;'>文件</span></div><div  class = 'S1'><span style=' font-family: monospace;'>.whl</span><span>应使用以下命令安装</span><span>该文件</span><span style=' font-family: monospace;'>pip3</span><span>：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    pip3 install &lt;path/to/wheel&gt;.whl</span></div><div  class = 'S1'><span>该</span><span style=' font-family: monospace;'>.whl</span><span>文件无法分发，因为它是专门为当前的操作系统构建的。</span></div><div  class = 'S1'><span style=' font-weight: bold;'>警告</span></div><div  class = 'S1'><span>使用不同方法安装 CARLA 客户端库以及系统上安装不同版本的 CARLA 可能会出现问题。</span><span>建议在安装时使用虚拟环境，</span><span style=' font-family: monospace;'>.whl</span><span>并</span><span>在安装新客户端库之前</span><a href = "https://carla.readthedocs.io/en/latest/build_faq/#how-do-i-uninstall-the-carla-client-library"><span>卸载任何以前安装的客户端库。</span></a></div><h3  class = 'S6' id = 'H_C55F3196' ><span style=' font-weight: bold;'>2.</span><span> </span><span style=' font-weight: bold;'>编译服务器</span><span>：</span></h3><div  class = 'S1'><span>以下命令编译并启动虚幻引擎。</span><span>每次您想要启动服务器或使用虚幻引擎编辑器时运行此命令：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>    make launch</span></div><div  class = 'S1'><span>该项目第一次可能会要求构建其他实例，例如 </span><span style=' font-family: monospace;'>UE4Editor-Carla.dll</span><span>。</span><span>同意才能打开项目。</span><span>在首次启动期间，编辑器可能会显示有关着色器和网格距离场的警告。</span><span>这些需要一些时间来加载，在此之前地图将无法正确显示。</span></div><h3  class = 'S6' id = 'H_CA6A114E' ><span style=' font-weight: bold;'>3.</span><span> </span><span style=' font-weight: bold;'>开始模拟</span><span>：</span></h3><div  class = 'S1'><span>按</span><span style=' font-weight: bold;'>“Play”</span><span>开始服务器模拟。</span><span>可以使用按键 </span><span style=' font-family: monospace;'>WASD </span><span>移动相机，并通过在移动鼠标的同时单击场景来旋转相机。</span></div><div  class = 'S1'><span>使用里面的示例脚本测试仿真器 </span><span style=' font-family: monospace;'>PythonAPI\examples</span><span>。</span><span>在仿真器运行的情况下，为每个脚本打开一个新终端并运行以下命令以在城镇中产生一些生命并创建天气循环：</span></div><div  class = 'S1'><span style=' font-family: monospace;'>        </span><span style=' font-style: italic; font-family: monospace;'># 终端 A</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>        </span><span style=' font-family: monospace;'>cd</span><span style=' font-family: monospace;'> PythonAPI\examples</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>        pip3 install -r requirements.txt</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>        python3 generate_traffic.py  </span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'></span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>        </span><span style=' font-style: italic; font-family: monospace;'># 终端 B</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>        </span><span style=' font-family: monospace;'>cd</span><span style=' font-family: monospace;'> PythonAPI\examples</span><span style=' font-family: monospace;'></span></div><div  class = 'S1'><span style=' font-family: monospace;'>        python3 dynamic_weather.py</span></div><div  class = 'S1'><span style=' font-weight: bold;'>重要</span></div><div  class = 'S1'><span>如果模拟以非常低的 FPS 速率运行，请转至“</span><span style=' font-family: monospace;'>Edit -&gt; Editor preferences -&gt; Performance”</span><span>虚幻引擎编辑器并禁用 </span><span style=' font-family: monospace;'>Use less CPU when in background</span><span>。</span></div><h3  class = 'S6' id = 'H_F30A414C' ><span style=' font-weight: bold;'>其他 make 命令</span></h3><div  class = 'S1'><span>还有更多</span><span style=' font-family: monospace;'>make</span><span>您可能会发现有用的命令。</span><span>在下表中找到它们：</span></div><h4  class = 'S9' id = 'H_A89709A4' ><span style=' font-weight: bold;'>命令</span><span style=' font-weight: bold;'>描述</span></h4><div  class = 'S1'><span style=' font-family: monospace;'>make help </span><span>打印所有可用的命令。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>make launch </span><span>在编辑器窗口中启动 CARLA 服务器。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>make PythonAPI </span><span>构建 CARLA 客户端。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>make LibCarla </span><span>准备将 CARLA 库导入到任何地方。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>make package </span><span>构建 CARLA 并创建用于分发的打包版本（第一次编译花3个多小时，后面只编译改变的场景）。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>make clean </span><span>删除构建系统生成的所有二进制文件和临时文件。</span></div><div  class = 'S1'><span style=' font-family: monospace;'>make rebuild</span><span style=' font-family: monospace;'>make clean </span><span>并且 </span><span style=' font-family: monospace;'>make launch </span><span>两者都在一个命令中。</span></div><div  class = 'S1'><span>有关本指南的任何问题，</span><span> </span><span>请阅读</span><a href = "https://carla.readthedocs.io/en/latest/build_faq/"><span style=' font-weight: bold;'>常见问题解答</span></a><a href = "https://github.com/carla-simulator/carla/discussions"><span>页面或在CARLA 论坛</span></a><span>中发帖。</span></div><div  class = 'S1'><span>现在已经构建了 CARLA，接下来了解如何更新 CARLA 构建或在模拟中迈出第一步，并学习一些核心概念。</span></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Windows 构建
+% 本指南详细介绍了如何在 Windows 上从源代码构建 CARLA。有两个部分。第一部分详细介绍系统要求和所需软件的安装，第二部分详细介绍如何实际构建和运行 
+% CARLA。
+% 
+% 构建过程很长（4小时或更长时间）并且涉及多种软件。强烈建议在开始之前完整阅读该指南。
+% 
+% 如果遇到错误或困难，请查看<https://carla.readthedocs.io/en/latest/build_faq/ *常见问题解答*>页面，其中提供了最常见问题的解决方案。或者，使用<https://github.com/carla-simulator/carla/discussions 
+% CARLA 论坛>发布您可能有的任何疑问。
+%% 第一部分：先决条件
+% 在本节中，您将找到开始构建 CARLA 之前所需的系统要求、次要和主要软件安装以及 Python 依赖项的详细信息。
+% *系统要求*
+%% 
+% * *x64 系统。*模拟器应在任何 64 位 Windows 系统中运行。
+% * *165 GB 磁盘空间。*CARLA 本身将占用大约 32 GB，相关的主要软件安装（包括虚幻引擎）将占用大约 133 GB。
+% * *足够的 GPU。*CARLA 旨在实现真实模拟，因此服务器至少需要 6 GB GPU，但建议使用 8 GB。强烈建议使用专用 GPU 进行机器学习。
+% * *两个 TCP 端口和良好的互联网连接。*默认为 2000 年和 2001 年。确保这些端口未被防火墙或任何其他应用程序阻止。
+%% 
+% *警告*
+% 
+% *如果您要从 CARLA 0.9.12 升级到 0.9.13*：您必须首先将 UE4 引擎的 CARLA 分支升级到最新版本。有关升级 UE4 的详细信息，请参阅<https://carla.readthedocs.io/en/latest/build_windows/#unreal-engine 
+% *虚幻引擎部分*>
+% *软件要求*
+% *最小安装*
+%% 
+% * <https://cmake.org/download/ *CMake*> 从简单的配置文件生成标准构建文件。
+% * <https://git-scm.com/downloads *Git*> 是一个用于管理 CARLA 存储库的版本控制系统。
+% * <http://gnuwin32.sourceforge.net/packages/make.htm *Make*> 生成可执行文件。必须使用*Make 
+% 3.81* 版本，否则构建可能会失败。如果安装了多个版本的 Make，请检查构建 CARLA 时在 PATH 中使用的版本是否为 3.81。您可以通过运行来检查默认的 
+% Make 版本 |make REPLACE_WITH_DASH_DASHversion|。
+% * <https://www.7-zip.org/ *7Zip*> 是一款文件压缩软件。这是自动解压缩资产文件所必需的，并防止在构建期间由于错误或部分提取大文件而出现错误。
+% * <https://www.python.org/downloads/ *Python3 x64*> 是 CARLA 中的主要脚本语言。安装 x32 
+% 版本可能会导致冲突，因此强烈建议卸载它。
+%% 
+% *重要的*
+% 
+% 确保将上述程序添加到<https://www.java.com/en/download/help/path.xml 环境路径>中。请记住，添加的路径应与程序的|bin|目录相对应。
+% *Python 依赖项*
+% 从 CARLA 0.9.12 开始，用户可以选择使用|pip3|. 需要 20.3 或更高版本。要检查您是否有合适的版本，请运行以下命令：
+% 
+% |pip3 -V|
+% 
+% 如果您需要升级：
+% 
+% |pip3 install REPLACE_WITH_DASH_DASHupgrade pip|
+% 
+% 必须安装以下 Python 依赖项：
+% 
+% |pip3 install REPLACE_WITH_DASH_DASHuser setuptools
+% 
+% |pip3 install REPLACE_WITH_DASH_DASHuser wheel
+% 
+% *主要安装*
+% 
+% *Visual Studio 2019*
+% 
+% 从<https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/ 
+% 此处>获取 2019 版 Visual Studio 。选择*社区*作为免费版本。使用_Visual Studio 安装程序_安装三个附加元素：
+%% 
+% * *Windows 8.1 SDK。*在右侧的_“安装详细信息”_部分中选择它，或者转到_“单独组件”选项卡并在“SDK”、“库”和“框架”_标题下查看。
+% * *x64 Visual C++ 工具集。*在_“工作负载”_部分中，选择*“使用 C++ 进行桌面开发”*。这将启用用于构建的 x64 命令提示符。|Windows|通过按按钮并搜索 
+% 来检查它是否已正确安装|x64|。小心*不要打开|x86_x64|提示*。
+% * *.NET框架4.6.2*。在_工作负载_部分中，选择*.NET 桌面开发*，然后在右侧的_安装详细信息_|.NET Framework 4.6.2 
+% development tools|面板中选择。这是构建虚幻引擎所必需的。
+%% 
+% *重要的*
+% 
+% 其他 Visual Studio 版本可能会导致冲突。即使这些已被卸载，某些寄存器也可能仍然存在。要从计算机中彻底清除 Visual Studio，请转到|Program 
+% Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout|并运行|.\InstallCleanup.exe 
+% -full|
+% *虚幻引擎*
+% 从版本 0.9.12 开始，CARLA 使用虚幻引擎 4.26 的修改版。该分支包含 CARLA 特定的补丁。
+% 
+% 请注意，要下载虚幻引擎的这个分支，*需要有一个链接到虚幻引擎帐户的 GitHub 帐户*。如果您没有进行此设置，请先按照<https://www.unrealengine.com/en-US/ue4-on-github 
+% 本指南>进行操作，然后再继续操作。
+% 
+% 要构建虚幻引擎的修改版本：
+% 
+% *1.*在终端中，导航到要保存虚幻引擎的位置并克隆_carla_分支：
+% 
+% |git clone REPLACE_WITH_DASH_DASHdepth 1 -b carla https://github.com/CarlaUnreal/UnrealEngine.git 
+% .|
+% *笔记*
+% 尽可能靠近虚幻引擎文件夹，|C:\\|因为如果路径超过一定长度，则会|Setup.bat|在步骤 3 中返回错误。
+% 
+% *2.*运行配置脚本：
+% 
+% |Setup.bat
+% 
+% |GenerateProjectFiles.bat|
+% 
+% *3.*编译修改后的引擎：
+%% 
+% # 使用 Visual Studio 2019 打开 |UE4.sln| 源文件夹内的文件。
+% # 在构建栏中，确保您已选择“Development Editor”、“Win64”和“UnrealBuildTool”选项。如果您需要任何帮助，请查看<https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/BuildingUnrealEngine/index.html 
+% 本指南。>
+% # 在解决方案资源管理器中，右键单击|UE4|并选择|Build|。
+%% 
+% *4.*编译解决方案后，您可以打开引擎，通过启动可执行文件 |Engine\Binaries\Win64\UE4Editor.exe| 来检查所有内容是否已正确安装。
+% 
+% *笔记*
+% 
+% 如果安装成功，虚幻引擎的版本选择器应该能够识别。可以通过右键单击任何|.uproject|文件并选择 来检查这一点|Switch Unreal Engine 
+% version|。您应该会看到一个弹出窗口，显示|Source Build at PATH|PATH 是您选择的安装路径。|Generate Visual 
+% Studio project files|如果您在右键单击文件时看不到此选择器|.uproject|，则虚幻引擎安装出现问题，您可能需要重新正确安装。
+% 
+% *重要*
+% 
+% 到目前为止发生了很多事情。强烈建议在继续之前重新启动计算机。
+%% 第二部分：构建 CARLA
+% 克隆 CARLA 存储库
+% 上面的按钮将带您进入该项目的官方存储库。从那里下载并在本地提取它或使用以下命令克隆它：
+% 
+% |git clone https://github.com/carla-simulator/carla|
+% 
+% *笔记*
+% 
+% 该|master|分支包含 CARLA 的当前版本以及最新的修复和功能。以前的 CARLA 版本标有版本名称。永远记住使用命令检查 git 中的当前分支|git 
+% branch|。
+% *获取资产*
+% 通过在 CARLA 根文件夹中运行以下命令，下载*最新的*资产以使用当前版本的 CARLA：
+% 
+% |Update.bat|
+% 
+% 如果安装了 7zip，资源将被下载并解压到适当的位置。如果没有安装此软件，则需要手动将文件内容解压到 |Unreal\CarlaUE4\Content\Carla|.
+% 
+% 要下载*特定版本* CARLA  的资源：
+%% 
+% # 从 CARLA 根目录，导航到 |\Util\ContentVersions.txt|. 本文档包含所有 CARLA 版本的资产链接。
+% # 提取 |Unreal\CarlaUE4\Content\Carla| 中的资产。如果该路径不存在，请创建它。
+% # 使用类似于以下内容的命令提取文件：
+%% 
+% |tar -xvzf <assets_file_name>.tar.gz.tar -C C:\path\to\carla\Unreal\CarlaUE4\Content\Carla|
+% *设置虚幻引擎环境变量*
+% 需要设置一个环境变量，以便 CARLA 可以找到虚幻引擎的安装文件夹。这允许用户选择要使用哪个特定版本的虚幻引擎。如果未指定环境变量，CARLA 将在 
+% Windows 注册表中搜索虚幻引擎并使用在那里找到的第一个版本。
+% 
+% 设置环境变量：
+%% 
+% # 打开 Windows 控制面板，然后转至 |Advanced System Settings| 或在 Windows 搜索栏中 |Advanced 
+% System Settings| 搜索。
+% # 在 |Advanced| 面板上打开|Environment Variables...|.
+% # 单击 |New...| 以创建变量。
+% # 为该变量命名 |UE4_ROOT| 并选择所需虚幻引擎安装的安装文件夹的路径。
+% *建造 CARLA*
+% 本节概述了构建 CARLA 的命令。
+%% 
+% * 所有命令都应在根 CARLA 文件夹中运行。
+% * 命令应通过 *VS 2019 的 x64 Native Tools 命令提示符* 执行。通过单击该 |Windows| 键并搜索 |x64| 来打开它。
+%% 
+% CARLA 的构建过程分为两部分：编译客户端和编译服务器。
+% *1.* *编译Python API客户端*：
+% Python API 客户端授予对仿真的控制权。第一次构建 CARLA 时需要编译 Python API 客户端，并且在执行任何更新后需要再次编译。客户端编译完成后，将能够运行脚本与模拟进行交互。
+% 
+% 以下命令编译 Python API 客户端：
+% 
+% |make PythonAPI|
+% 
+% CARLA 客户端库将以两种截然不同、互斥的形式构建。这使用户可以自由选择他们喜欢的形式来运行 CARLA 客户端代码。两种形式包括 |.egg| 
+% 文件和 |.whl| 文件。选择以下选项之一来使用客户端库*：*
+% 
+% *A、|.egg|文件*
+% 
+% 该 |.egg| 文件不需要安装。导入 CARLA 时，CARLA 的所有示例脚本都会自动<https://carla.readthedocs.io/en/latest/build_system/#versions-prior-to-0912 
+% 查找此文件。>
+% 
+% 如果之前安装了 CARLA|.whl|，则 它将|.whl|优先于|.egg|文件。
+% 
+% *B、|.whl|文件*
+% 
+% |.whl|应使用以下命令安装该文件|pip3|：
+% 
+% |pip3 install <path/to/wheel>.whl|
+% 
+% 该|.whl|文件无法分发，因为它是专门为当前的操作系统构建的。
+% 
+% *警告*
+% 
+% 使用不同方法安装 CARLA 客户端库以及系统上安装不同版本的 CARLA 可能会出现问题。建议在安装时使用虚拟环境，|.whl|并在安装新客户端库之前<https://carla.readthedocs.io/en/latest/build_faq/#how-do-i-uninstall-the-carla-client-library 
+% 卸载任何以前安装的客户端库。>
+% *2.* *编译服务器*：
+% 以下命令编译并启动虚幻引擎。每次您想要启动服务器或使用虚幻引擎编辑器时运行此命令：
+% 
+% |make launch|
+% 
+% 该项目第一次可能会要求构建其他实例，例如 |UE4Editor-Carla.dll|。同意才能打开项目。在首次启动期间，编辑器可能会显示有关着色器和网格距离场的警告。这些需要一些时间来加载，在此之前地图将无法正确显示。
+% *3.* *开始模拟*：
+% 按*“Play”*开始服务器模拟。可以使用按键 |WASD| 移动相机，并通过在移动鼠标的同时单击场景来旋转相机。
+% 
+% 使用里面的示例脚本测试仿真器 |PythonAPI\examples|。在仿真器运行的情况下，为每个脚本打开一个新终端并运行以下命令以在城镇中产生一些生命并创建天气循环：
+% 
+% _# 终端 A_
+% 
+% cd PythonAPI\examples
+% 
+% |pip3 install -r requirements.txt
+% 
+% |python3 generate_traffic.py  
+% 
+% 
+% 
+% _# 终端 B_
+% 
+% cd PythonAPI\examples
+% 
+% |python3 dynamic_weather.py|
+% 
+% *重要*
+% 
+% 如果模拟以非常低的 FPS 速率运行，请转至“|Edit -> Editor preferences -> Performance”|虚幻引擎编辑器并禁用 
+% |Use less CPU when in background|。
+% *其他 make 命令*
+% 还有更多|make|您可能会发现有用的命令。在下表中找到它们：
+% *命令描述*
+% |make help| 打印所有可用的命令。
+% 
+% |make launch| 在编辑器窗口中启动 CARLA 服务器。
+% 
+% |make PythonAPI| 构建 CARLA 客户端。
+% 
+% |make LibCarla| 准备将 CARLA 库导入到任何地方。
+% 
+% |make package| 构建 CARLA 并创建用于分发的打包版本（第一次编译花3个多小时，后面只编译改变的场景）。
+% 
+% |make clean| 删除构建系统生成的所有二进制文件和临时文件。
+% 
+% |make rebuildmake clean| 并且 |make launch| 两者都在一个命令中。
+% 
+% 有关本指南的任何问题， 请阅读<https://carla.readthedocs.io/en/latest/build_faq/ *常见问题解答*><https://github.com/carla-simulator/carla/discussions 
+% 页面或在CARLA 论坛>中发帖。
+% 
+% 现在已经构建了 CARLA，接下来了解如何更新 CARLA 构建或在模拟中迈出第一步，并学习一些核心概念。
+##### SOURCE END #####
+-->
+</div></body></html>

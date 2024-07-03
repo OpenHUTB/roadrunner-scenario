@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022b"><title>与 CARLA 协同仿真参与者</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S3 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S4 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S5 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>与 CARLA 协同仿真参与者</span></h1><div  class = 'S1'><span>在 RoadRunner 场景</span><span>中</span><span>集成、仿真和可视化在 CARLA 中设计的参与者。</span></div><div  class = 'S1'><span>RoadRunner Scenario 支持编辑器内模拟以实现场景可视化并连接到 CARLA 进行协同仿真。</span><span>协同仿真使</span><span>RoadRunner Scenario 能够通过简单的状态和行为控制来控制场景中的自我车辆，而 CARLA 软件引擎则可以管理场景中的其他车辆，而不会混淆自我车辆仿真。</span><span>协同仿真将 RoadRunner Scenario 提供的开发和设计简便性与</span><span>CARLA 提供的可扩展性结合起来</span><span>。</span></div><h2  class = 'S2'><span>仿真配置</span></h2><div  class = 'S1'><a href = "https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/simulationconfiguration.html"><span>仿真配置</span></a></div><h2  class = 'S2'><span>主题</span></h2><h3  class = 'S3'><span>开始使用 </span><span style=' font-weight: bold;'>CARLA 协同仿真工作流程</span></h3><ul  class = 'S4'><li  class = 'S5'><a href = "./ug\overview_of_roadrunner_scenario_and-carla_cosimulation.html"><span style=' font-weight: bold;'>RoadRunner 场景和 CARLA 协同仿真</span></a><span></span></li></ul><div  class = 'S1'><span>            连接 RoadRunner 场景</span><span>和 CARLA 之间的协同仿真系统概述。</span></div><ul  class = 'S4'><li  class = 'S5'><a href = "./ug\carla_cosimulation_workflow.html"><span style=' font-weight: bold;'>CARLA 协同仿真工作流程</span></a></li></ul><div  class = 'S1'><span>            了解如何使用 RoadRunner Scenario 和 CARLA 进行协同仿真。</span></div><div  class = 'S1'><span>                第 1 步：</span><a href = "./ug\set_up_carla_for_cosimulation.html"><span style=' font-weight: bold;'>设置 CARLA 进行协同仿真</span></a></div><div  class = 'S1'><span>                第 2 步：</span><a href = "./ug\configure_roadrunner_scenario_model.html"><span style=' font-weight: bold;'>配置 RoadRunner 场景模型</span></a></div><div  class = 'S1'><span>                第 3 步：</span><a href = "./ug\export_scenes_visualizations_to_carla.html"><span style=' font-weight: bold;'>将场景和可视化导出到 CARLA</span></a></div><div  class = 'S1'><span>                第 4 步：</span><a href = "./ug\run_roadrunner_scenario_and_carla_cosimulations.html"><span style=' font-weight: bold;'>使用 CARLA 运行协同仿真</span></a></div><div  class = 'S1'><span style=' font-weight: bold;'>也可以看看：</span></div><div  class = 'S1'><a href = "https://zhuanlan.zhihu.com/p/552983835https://zhuanlan.zhihu.com/p/552983835"><span style=' font-weight: bold;'>RoadRunner Scenario+CARLA 联合仿真</span></a></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 与 CARLA 协同仿真参与者
+% 在 RoadRunner 场景中集成、仿真和可视化在 CARLA 中设计的参与者。
+% 
+% RoadRunner Scenario 支持编辑器内模拟以实现场景可视化并连接到 CARLA 进行协同仿真。协同仿真使RoadRunner Scenario 
+% 能够通过简单的状态和行为控制来控制场景中的自我车辆，而 CARLA 软件引擎则可以管理场景中的其他车辆，而不会混淆自我车辆仿真。协同仿真将 RoadRunner 
+% Scenario 提供的开发和设计简便性与CARLA 提供的可扩展性结合起来。
+%% 仿真配置
+% <https://ww2.mathworks.cn/help/releases/R2022b/roadrunner-scenario/ref/simulationconfiguration.html 
+% 仿真配置>
+%% 主题
+% 开始使用 *CARLA 协同仿真工作流程*
+%% 
+% * <./ug\overview_of_roadrunner_scenario_and-carla_cosimulation.html *RoadRunner 
+% 场景和 CARLA 协同仿真*>
+%% 
+% 连接 RoadRunner 场景和 CARLA 之间的协同仿真系统概述。
+%% 
+% * <./ug\carla_cosimulation_workflow.html *CARLA 协同仿真工作流程*>
+%% 
+% 了解如何使用 RoadRunner Scenario 和 CARLA 进行协同仿真。
+% 
+% 第 1 步：<./ug\set_up_carla_for_cosimulation.html *设置 CARLA 进行协同仿真*>
+% 
+% 第 2 步：<./ug\configure_roadrunner_scenario_model.html *配置 RoadRunner 场景模型*>
+% 
+% 第 3 步：<./ug\export_scenes_visualizations_to_carla.html *将场景和可视化导出到 CARLA*>
+% 
+% 第 4 步：<./ug\run_roadrunner_scenario_and_carla_cosimulations.html *使用 CARLA 
+% 运行协同仿真*>
+% 
+% *也可以看看：*
+% 
+% <https://zhuanlan.zhihu.com/p/552983835https://zhuanlan.zhihu.com/p/552983835 
+% *RoadRunner Scenario+CARLA 联合仿真*>
+##### SOURCE END #####
+-->
+</div></body></html>
